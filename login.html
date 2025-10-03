@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In | InstaFashion</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="signup-container">
+    <div class="branding-strip">INSTAFASHION</div>
+    <h2>Welcome Back</h2>
+    <form id="login-form">
+      <input type="email" placeholder="Email Address" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit" class="btn">Log In</button>
+    </form>
+
+    <div class="divider">or</div>
+
+    <!-- Google Login Button -->
+    <div  id="g_id_onload"
+     data-client_id="599595619461-f0k3cvth3sk6b48snsb3or54eh6cb59g.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleGoogleLogin"
+     data-auto_prompt="false">
+</div>
+    </div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+
+    <p class="login-link">New to InstaFashion? <a href="signup.html">Create an account</a></p>
+  </div>
+
+  <script>
+    function handleGoogleLogin(response) {
+      console.log("Google token:", response.credential);
+      alert("Google login successful!");
+      // TODO: Send token to backend for verification
+    }
+
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Logged in successfully!");
+      // TODO: Send login data to backend
+    });
+  </script>
+  <link rel="stylesheet" href="style/login.css" />
+</body>
+</html>
